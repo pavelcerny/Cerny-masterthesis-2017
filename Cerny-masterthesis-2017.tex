@@ -35,7 +35,11 @@
 %\usepackage{czech}  %%%%%\usepackage[T1]{czech} %%%%[IL2] [T1] [OT1]
 %=-=-=-=-=-=-=-=-=-=-=-=--=%
 
+% MY ADDED PACKAGES
 \usepackage{booktabs}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{url}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Styles required in your work follow %
@@ -176,74 +180,76 @@ unicode=true,
 	\newcommand\gps{Naviterier - GPS \& compass}
 	\newcommand\reversegeo{Naviterier - Reverse Geocoding}
 	
+	\newcommand{\qo}[1]{\emph{#1}}
 	
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%    Poznamky ke kompletaci prace
-	% Nasledujici pasaz uzavrenou v {} ve sve praci samozrejme 
-	% zakomentujte nebo odstrante. 
-	% Ve vysledne svazane praci bude nahrazena skutecnym 
-	% oficialnim zadanim vasi prace.
-	{
-		\pagenumbering{roman} \cleardoublepage \thispagestyle{empty}
-		\chapter*{Na tomto místě bude oficiální zadání vaší práce}
-		\begin{itemize}
-			\item Toto zadání je podepsané děkanem a vedoucím katedry,
-			\item musíte si ho vyzvednout na studiijním oddělení Katedry počítačů na Karlově náměstí,
-			\item v jedné odevzdané práci bude originál tohoto zadání (originál zůstává po obhajobě na katedře),
-			\item ve druhé bude na stejném místě neověřená kopie tohoto dokumentu (tato se vám vrátí po obhajobě).
-		\end{itemize}
-		\newpage
-	}
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%    Titulni stranka / Title page 
-	
-	\coverpagestarts
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%    Podekovani / Acknowledgements 
-	
-	%\acknowledgements
-	%\noindent
-	%Zde můžete napsat své poděkování, pokud chcete a máte komu děkovat.
-	
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%   Prohlaseni / Declaration 
-	
-	\declaration{In~Prague on May 26, 2017}
-	%\declaration{In Kořenovice nad Bečvárkou on May 15, 2008}
-	
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%    Abstract 
-	
-	\abstractpage
-	
-	Translation of Czech abstract into English.
-	
-	% Prace v cestine musi krome abstraktu v anglictine obsahovat i
-	% abstrakt v cestine.
-	\vglue60mm
-	
-	\noindent{\Huge \textbf{Abstrakt}}
-	\vskip 2.75\baselineskip
-	
-	\noindent
-	Abstrakt práce by měl velmi stručně vystihovat její podstatu. Tedy čím se práce zabývá a co je jejím výsledkem/přínosem.
-	
-	\noindent
-	Očekávají se cca 1 -- 2 odstavce, maximálně půl stránky.
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Obsah / Table of Contents 
-	
-	\tableofcontents
-	
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Seznam obrazku / List of Figures 
-	
-	\listoffigures
-	
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Seznam tabulek / List of Tables
-	
-	\listoftables
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%    Poznamky ke kompletaci prace
+%	% Nasledujici pasaz uzavrenou v {} ve sve praci samozrejme 
+%	% zakomentujte nebo odstrante. 
+%	% Ve vysledne svazane praci bude nahrazena skutecnym 
+%	% oficialnim zadanim vasi prace.
+%	{
+%		\pagenumbering{roman} \cleardoublepage \thispagestyle{empty}
+%		\chapter*{Na tomto místě bude oficiální zadání vaší práce}
+%		\begin{itemize}
+%			\item Toto zadání je podepsané děkanem a vedoucím katedry,
+%			\item musíte si ho vyzvednout na studiijním oddělení Katedry počítačů na Karlově náměstí,
+%			\item v jedné odevzdané práci bude originál tohoto zadání (originál zůstává po obhajobě na katedře),
+%			\item ve druhé bude na stejném místě neověřená kopie tohoto dokumentu (tato se vám vrátí po obhajobě).
+%		\end{itemize}
+%		\newpage
+%	}
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%    Titulni stranka / Title page 
+%	
+%	\coverpagestarts
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%    Podekovani / Acknowledgements 
+%	
+%	%\acknowledgements
+%	%\noindent
+%	%Zde můžete napsat své poděkování, pokud chcete a máte komu děkovat.
+%	
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%   Prohlaseni / Declaration 
+%	
+%	\declaration{In~Prague on May 26, 2017}
+%	%\declaration{In Kořenovice nad Bečvárkou on May 15, 2008}
+%	
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%    Abstract 
+%	
+%	\abstractpage
+%	
+%	Translation of Czech abstract into English.
+%	
+%	% Prace v cestine musi krome abstraktu v anglictine obsahovat i
+%	% abstrakt v cestine.
+%	\vglue60mm
+%	
+%	\noindent{\Huge \textbf{Abstrakt}}
+%	\vskip 2.75\baselineskip
+%	
+%	\noindent
+%	Abstrakt práce by měl velmi stručně vystihovat její podstatu. Tedy čím se práce zabývá a co je jejím výsledkem/přínosem.
+%	
+%	\noindent
+%	Očekávají se cca 1 -- 2 odstavce, maximálně půl stránky.
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Obsah / Table of Contents 
+%	
+%	\tableofcontents
+%	
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Seznam obrazku / List of Figures 
+%	
+%	\listoffigures
+%	
+%	
+%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Seznam tabulek / List of Tables
+%	
+%	\listoftables
 	
 	
 	%**************************************************************
@@ -269,253 +275,20 @@ unicode=true,
 	% \include{1_uvod}
 	% \include{2_teorie}
 	% atd...
-	
 	%*****************************************************************************
-	%\chapter{Úvod}
-	\chapter{Introduction}
-	
-	\section{Motivation}
-	\subsection{Motivation for Navigation System}
-	Blind and other visually impaired want to be self-sufficient. A possibility to walk from one place in the city to another seems very common to us, but is very challenging for the blinds. They can't go just somewhere without previous preparation. They have to study the area on the maps and try to remember it.
-	
-	A navigation system can spare them all these time-consuming preparations and give them the required information just in time, when they need them. The trouble is the current systems for navigation of a pedestrian with the sight, just shows his position on the map. A user determines his position by looking around him and comparing it with the situation drawn on map. On the other hand the blinds are not able to do something like this, so they need the system
-	helps them even with the process of determining the exact position. 
-	
-	There are some systems specially designed for blind pedestrians. They can be downloaded from the Apples's App Store or Google's Google Play. Still these systems doesn't provide the user with any info about pedestrian crossings and sidewalks.
-	
-	\subsection{Motivation for Dialog Systems}
-	We, humans, are very good at talking. We talk to each other. So the idea of controlling the software just by talking seems very easy. It would reduce a lot of cognitive overload caused by the user interface. The regular interface for blind have to read aloud the content and how to use it \uv{Send, button, double tap to activate} and \uv{Address, Text field, double tap to edit}. So be able just to talk would reduce the amount of spoken text and reduce the cognitive load.
-	
-	
-	\section{Problem Description}
-	The current GPS navigations for sighted person shows only information sufficient to sighted people. It shows only approximate position and just which streets the person should go. A sighted person can look around and find a pedestrian crossing to cross the street. As well the person receive feedback by looking what is drawn on the map and comparing it with what he or she sees around. See fig \ref{fig:sighted-person}.
-	
-	\begin{figure}[h]
-		\centering
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=.4\linewidth]{figures/introduction/gps-shows}
-			\caption{GPS shows}
-			\label{fig:sighted-person-sub1}
-		\end{subfigure}%
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=.4\linewidth]{figures/introduction/sighted-person}
-			\caption{sighted person analyses}
-			\label{fig:sighted-person-sub2}
-		\end{subfigure}
-		\caption{Info shown by GPS and how a sighted person analyses it}
-		\label{fig:sighted-person}
-	\end{figure}
-	
-	On the other hand the blinds can't look around and will not know on which sidewalk they are. And neither the device will know where they exactly are. See fig \ref{fig:blind-person}.
-	\begin{figure}[h]
-		\centering
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=.4\linewidth]{figures/introduction/gps-shows}
-			\caption{A subfigure}
-			\label{fig:blind-person-sub1}
-		\end{subfigure}%
-		\begin{subfigure}{.5\textwidth}
-			\centering
-			\includegraphics[width=.4\linewidth]{figures/introduction/blind-person}
-			\caption{A subfigure}
-			\label{fig:blind-person-sub2}
-		\end{subfigure}
-		\caption{Info shown by GPS and how a sighted person analyses it}
-		\label{fig:blind-person}
-	\end{figure}
-	
-	There is a navigation Naviterier in the beta stage of developement. Naviterier can navigate in the manner \uv{cross the pedestrian crossing, turn left, go to corner of a building and turn right}. However Naviterier in the current stage can navigate only from a given Address point to another Address point. I.e. can navigate from \uv{Karlovo náměstí 13} to \uv{Myslíkova 1} (both are streets in Prague, Czech Republic). 
-	
-	Imagine you have to enter your exact address every time you go somewhere. It is not very convenient. Not talking about cases when you don't know the exact address. i.e. You are on the stop of public transport, you are in the park, someone brought you to a place and now you have to go home. Or you just get lost.
-	
-	The GPS signal is not sufficiently accurate in the city to estimate the exact position on the sidewalk. The question is can we design a system which using a the inaccurate info from GPS and asking the user some questions can estimate the exact location?
-	 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\linewidth]{figures/introduction/determine-exact-position-on-sidewalk}
-	\caption[Determine exact position on a sidewalk]{Determine exact position on a sidewalk}
-	\label{fig:determine-exact-position-on-sidewalk}
-\end{figure}
-	
-	
-	
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=5cm]{figures/introduction/gps-shows}
-	\caption[Current Navigations]{Popiska obrázku}
-	\label{fig:gps-shows}
-\end{figure}
-
-	
-	
-
-	
-	
-	
-	
-	\section{Expected Goals}
-	
-	I want to use a dialog system to locate a blind pedestrian.
-	
-	Popis řešeného problému, vymezení cílů DP/BP a požadavků na implementovaný systém.
-	
-	
-	%*****************************************************************************
-	%\chapter{Popis problému, specifikace cíle}
-	\chapter{Structure}
-	
-	Popis struktury DP/BP ve vztahu k vytyčeným cílům.
-	
-	%*****************************************************************************
-	\chapter{State-of-the-art}
-	
-	%*****************************************************************************
-	\chapter{Analysis and design of the solution}
-	
-	%*****************************************************************************
-	\chapter{Implementation}
-	\section{Prototypes}
-	\subsection{\reversegeo}
-	\subsection{\gps}
-	\subsection{\poi}
-	\section{Architecture}
-	\subsection{Language \& Frameworks}
-	\section{Technical Details}
-	\subsection{APIs}
-	%kdo
-	%co
-	%kolik
-	%kdy
-	%kde
-	%jak
-	%proč
-	\subsubsection{My APIs}
-	\subsubsection{Naviterier APIs}
-	\subsubsection{Other APIs}
-	\subsection{Databases}
-	\subsubsection{Addresses Database}
-	%kdo/co
-	The addresses database contains a list of all addresses. The address consist of street name and house number, street name nad landregistry number or street name house number / landregistry number. I.e. \uv{Karlovo náměstí 13}, \uv{Karlovo náměstí 296} or \uv{Karlovo náměstí 296/13}.
-	%kolik
-	The data are one time collected from the Naviterier \uv{GetAddresses API} \cite{naviterier-addresses}.
-	%kdy
-	%kde
-	
-	%proč
-	The data are used to validate the address writen by user to the input really exists, or to validate if the address returned by the Reverse geocoding API is in the area covered by Naviterier.
-	
-	%jak
-	The database was enritched by a field \uv{street\_noaccents}. In this field is the street name striped of diacritics, spaces and special characters. I.e. \uv{náměstí I. P. Pavlova} is stored as \uv{namestiippavlova}. This allows the user to write without diacritics and not wory about the correct spacing.
-	
-	\subsubsection{DPP Database}
-	% kdo/co
-	The DPP database contains data about public transport in Prague (metro, trams, buses, chairlift and ferrys). 
-	There is a list of all stops with their GPS coordinates, all journeys of all lines in Prague and most important, the sequence of all stops on a journey of a line.
-	
-	% jak
-	The data was downloaded from the Prague's Open Data Portal \cite{dpp-data} and uploaded to the database. The data are valid for 7 days.
-	% kolik
-	The data are quite big, largest table arround 1.7 milions of entries. Therefore the data was imported one time only and not a regular basis.
-	% kdy 
-	% kde
-	
-	% proč
-	I am using this data to obtain a specific tramstop. The user inputs the stop he is currently standing on, the tram line and one of next stops. The system checks in which direction the line is heading and based on the direction determines the exact stop and its GPS position. The GPS position is then used to start the navigation.
-	
-	The DPP Database contains data
-	Aktuální jízdní řády sítě linek PID mimo vlaků (metro, tramvaje, autobusy, lanovka, přívozy) ve formátu GTFS. Data jsou pro období 7 dní dopředu.
-	
-
-	
-	\section{Prototypes} \label{sec:prototypes}
-	
-	%*****************************************************************************
-	\chapter{Testing}	
+	%\include{introduction}
+	%\include{state-of-the-art}
+	\include{solution}
+	%\include{implementation}
+	%\include{testing}
+	%\include{conclusion}
 		
-	The goal was evaluate the usability of interface and usability of proposed methods for lacalizing blind pedestrians. 
-	
-	method - Low-fi 1
-	(jak jsme to navrhli (jak jsme to navrhli a jak jsme implementovali vstupy z Low-fi 1))
-	Evaluation
-	-participants (vek, pocet, odkud, jaci lide)
-	-procedure (jak jsem to delal (wizard-of-ozz, apod, co bylo za ukol, co jim experimentator rekl, instrukce)
-	-apparatus (technicky setup, technologie, jak se to zaznamenalo)
-	-design* (skupiny, shuffling, nezavisle, zavisle promenne)
-	-results\&discussion
-	-recommendation for design
-	
-	\section{Contacts pool} \label{sec:contactsPool}
-	I was collecting the contacts of blind people using the Snowball method. The seeds were Invisible exhibition, their personal websites, friends of my friends and blinds in streets.
-	
-	I visited the exhibition in Prague called Invisible exhibition \cite{later} and gathered few phone numbers there. I hit into personal websites of some blind by googling for topics around blindness. (I am not making citations to their websites, with respect to their privacy). My friends as well knew some blind in their surroundings and provided me with a connection to them and last I actively started to ask blind, when I saw them with the white cone on the street. All these people willingly provided me with contacts on their friends, which would be interested in trying the technology for themselves so the snowball effect continued.
-	\section{Participants}
-	
-	5 blind people participated in the study. I sent emails and sms based on my contact library (see \ref{sec:contactsPool}) and the first 5 to be available soonest participated in the study. 
-	
-	The age of participants was ranging from 28 to 68.
-	They were totally blind or just with a point vision (imagine looking through the paper with a small gap made by a needle).
-	All of them were blind since childhood and one of them was using dog.
-	\section{Procedure}
-	(jak jsme to navrhli)
-	Evaluation
-	-participants (vek, pocet, odkud, jaci lide)
-	-procedure (jak jsem to delal (wizard-of-ozz, apod, co bylo za ukol, co jim experimentator rekl, instrukce)
-	-apparatus (technicky setup, technologie, jak se to zaznamenalo)
-	-design* (skupiny, shuffling, nezavisle, zavisle promenne)
-	-results\&discussion
-	-recommendation for design
-	
-	\subsection{Setup}
-	We were testing 3 prototypes: \poi{}, \reversegeo{} and \gps{}. The prototypes are deeply described in section \ref{sec:prototypes}. 
-	\subsection{}
-	\section{Apparatus}
-	\subsection{Technology}
-	All the prototypes were interactive websites and running in a Chrome browser on the cellphone Huawei Honor 7 lite, 5" inches screen with Android 7 Nougat. The websites were read aloud and controlled through screen reader Google TalkBack\cite{later}.
-	\subsection{data collection}
-	The sessions were
-	
-	\section{Design}
-	\subsection{Locations}
-	Initial places depended on the prototype:
-	\begin{description}
-		\item [\poi{}] randomly choosen tramstop, and we arrived there by tram
-		\item [\reversegeo{}] randomly choosen place, while walking through the city
-		\item [\gps{}] randomly choosen place, while walking through the city
-	\end{description}
-	
-	The initial place never repeated within more participants. It could repeat within one participant.
-	\subsection{Method orders}
-	\begin{table}[]
-		\centering
-		\caption{Order of procedures}
-		\label{my-label}
-		\begin{tabular}{@{}cccc@{}}
-			\toprule
-			\textbf{participant id} & \textbf{1st} & \textbf{2nd} & \textbf{3rd} \\ \midrule
-			\#1                     & POI          & RG           & GPS          \\
-			\#2                     & POI          & RG           & GPS          \\
-			\#3                     & RG           & GPS          & POI          \\
-			\#4                     & GPS          & POI          & RG           \\
-			\#5                     & RG           & GPS          & POI          \\ \bottomrule
-		\end{tabular}
-	\end{table}
-	
-	(skupiny, shuffling, nezavisle, zavisle promenne)
-	\section{Results \& discussion}
-	\section{Recommendation for design}
 	
 	
-	%*****************************************************************************
-	%\chapter{Závěr}
-	\chapter{Conclusion}
-	\section{What was done}
-	zhodnocení lastního přínosu práce (při formulaci je třeba vzít v potaz zadání práce)
-	\section{Goals acomplishment}
-	Zhodnocení splnění cílů DP/BP
-	\section{What next?}
+	
+	
+	
+	
 	
 	
 	%*****************************************************************************
@@ -524,7 +297,7 @@ unicode=true,
 	% zapracujte) pomoci prikazu bibtex a nasledne pdflatex (nebo
 	% latex). Druhy z nich alespon 2x, aby se poresily odkazy.
 	
-	\bibliographystyle{abbrv}
+	\bibliographystyle{abbrv}	
 	%bibliographystyle{plain}
 	%\bibliographystyle{psc}
 	{
@@ -538,348 +311,7 @@ unicode=true,
 	% kdy citace ma tvar [AutorRok] (napriklad [Cook97]). Sice to asi neni  podle ceske normy (BTW BibTeX stejne neodpovida ceske norme), ale je to nejprehlednejsi.
 	% 3.5.2009 JZ polemizuje: BibTeX neobvinujte, napiste a poskytnete nam styl (.bst) splnujici citacni normu CSN/ISO.
 	
-	%*****************************************************************************
-	%*****************************************************************************
-	\appendix
-	
-	\chapter{Testování zaplnění stránky a odsazení odstavců}
-	\textbf{\large Tato příloha nebude součástí vaší práce. 
-		Slouží pouze jako příklad formátování textu.}
-	
-	\section*{}
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili? Určitě existuje nějaká pěkná latinská věta, která se k tomuhle testování používá, ale co mají dělat ti, kteří se nikdy latinsky neučili?
-	
-	%*****************************************************************************
-	\chapter{Pokyny a návody k formátování textu práce}
-	\textbf{\large Tato příloha samozřejmě nebude součástí vaší práce. Slouží pouze jako příklad formátování textu.}
-	
-	Používat se dají všechny příkazy systému \LaTeX. Existuje velké množství volně přístupné dokumentace, tutoriálů, příruček a dalších materiálů v elektronické podobě. Výchozím bodem, kromě Googlu, může být stránka CSTUG (Czech Tech Users Group) \cite{CSTUG}. Tam najdete odkazy na další materiály.  Vetšinou dostačující a přehledně organizovanou elektronikou dokumentaci najdete například na \cite{latexdocweb} nebo \cite{latexwiki}.
-	
-	Existují i různé nadstavby nad systémy \TeX{} a \LaTeX, které výrazně usnadní psaní textu zejména začátečníkům. Velmi rozšířený v Linuxovém prostředí je systém Kile.
-	
-	
-	\section{Vkládání obrázků}
-	Obrázky se umísťují do plovoucího prostředí \verb|figure|. Každý obrázek by měl obsahovat \textbf{název} (\verb|\caption|) a \textbf{návěští} (\verb|\label|). Použití příkazu pro vložení obrázku \\\verb|\includegraphics| je podmíněno aktivací (načtením) balíku graphicx příkazem\\ \verb|\usepackage{graphicx}|.
-	
-	Budete-li zdrojový text zpracovávat pomocí programu \verb|pdflatex|, očekávají se obrázky s příponou \verb|*.pdf|\footnote{pdflatex umí také formáty PNG a JPG.}, použijete-li k formátování \verb|latex|, očekávají se obrázky s příponou \verb|*.eps|.\footnote{Vzájemnou konverzi mezi snad všemi typy obrazku včetně změn vekostí a dalších vymožeností vám může zajistit balík ImageMagic  (http://www.imagemagick.org/script/index.php). Je dostupný pod Linuxem, Mac OS i MS Windows. Důležité jsou zejména příkazy convert a identify.}
-	
-	\begin{figure}[ht]
-		\begin{center}
-			\includegraphics[width=5cm]{figures/LogoCVUT}
-			\caption{Popiska obrázku}
-			\label{fig:logo}
-		\end{center}
-	\end{figure}
-	
-	Příklad vložení obrázku:
-	\begin{verbatim}
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[width=5cm]{figures/LogoCVUT}
-	\caption{Popiska obrazku}
-	\label{fig:logo}
-	\end{center}
-	\end{figure}
-	\end{verbatim}
-	
-	\section{Kreslení obrázků}
-	Zřejmě každý z vás má nějaký oblíbený nástroj pro tvorbu obrázků. Jde jen o to, abyste dokázali obrázek uložit v požadovaném formátu nebo jej do něj konvertovat (viz předchozí kapitola). Je zřejmě vhodné kreslit obrázky vektorově. Celkem oblíbený, na ovládání celkem jednoduchý a přitom dostatečně mocný je například program Inkscape.
-	
-	Zde stojí za to upozornit na kreslící programe Ipe \cite{ipe}, který dokáže do obrázku vkládat komentáře přímo v latexovském formátu (vzroce, stejné fonty atd.). Podobné věci umí na Linuxové platformě nástroj Xfig. 
-	
-	Za pozornost ještě stojí schopnost editoru Ipe importovat obrázek (jpg nebo bitmap) a krelit do něj latexovské popisky a komentáře. Výsledek pak umí exportovat přímo do pdf.
-	
-	\section{Tabulky}
-	Existuje více způsobů, jak sázet tabulky. Například je možno použít prostředí \verb|table|, které je velmi podobné prostředí \verb|figure|. 
-	
-	\begin{table}
-		\begin{center}
-			\begin{tabular}{|c|l|l|}
-				\hline
-				\textbf{DTD} & \textbf{construction} & \textbf{elimination} \\
-				\hline
-				$\mid$ & \verb+in1|A|B a:sum A B+ & \verb+case([_:A]a)([_:B]a)ab:A+\\
-				&\verb+in1|A|B b:sum A B+ & \verb+case([_:A]b)([_:B]b)ba:B+\\
-				\hline
-				$+$&\verb+do_reg:A -> reg A+&\verb+undo_reg:reg A -> A+\\
-				\hline
-				$*,?$& the same like $\mid$ and $+$ & the same like $\mid$ and $+$\\
-				& with \verb+emtpy_el:empty+ & with \verb+emtpy_el:empty+\\
-				\hline
-				R(a,b) & \verb+make_R:A->B->R+ & \verb+a: R -> A+\\
-				& & \verb+b: R -> B+\\
-				\hline
-			\end{tabular}
-		\end{center}
-		\caption{Ukázka tabulky}
-		\label{tab:tab1}
-	\end{table}
-	
-	Zdrojový text tabulky \ref{tab:tab1} vypadá takto:
-	\begin{verbatim}
-	\begin{table}
-	\begin{center}
-	\begin{tabular}{|c|l|l|}
-	\hline
-	\textbf{DTD} & \textbf{construction} & \textbf{elimination} \\
-	\hline
-	$\mid$ & \verb+in1|A|B a:sum A B+ & \verb+case([_:A]a)([_:B]a)ab:A+\\
-	&\verb+in1|A|B b:sum A B+ & \verb+case([_:A]b)([_:B]b)ba:B+\\
-	\hline
-	$+$&\verb+do_reg:A -> reg A+&\verb+undo_reg:reg A -> A+\\
-	\hline
-	$*,?$& the same like $\mid$ and $+$ & the same like $\mid$ and $+$\\
-	& with \verb+emtpy_el:empty+ & with \verb+emtpy_el:empty+\\
-	\hline
-	R(a,b) & \verb+make_R:A->B->R+ & \verb+a: R -> A+\\
-	& & \verb+b: R -> B+\\
-	\hline
-	\end{tabular}
-	\end{center}
-	\caption{Ukázka tabulky}
-	\label{tab:tab1}
-	\end{table}
-	\begin{table}
-	\end{verbatim}
-	
-	\section{Odkazy v textu}
-	\subsection{Odkazy na literaturu}
-	Jsou realizovány příkazem \verb|\cite{odkaz}|. 
-	
-	Seznam literatury je dobré zapsat do samostatného souboru a ten pak zpracovat programem bibtex (viz soubor \verb|reference.bib|). Zdrojový soubor pro \verb|bibtex| vypadá například takto:
-	\begin{verbatim}
-	@Article{Chen01,
-	author  = "Yong-Sheng Chen and Yi-Ping Hung and Chiou-Shann Fuh",
-	title   = "Fast Block Matching Algorithm Based on 
-	the Winner-Update Strategy",
-	journal = "IEEE Transactions On Image Processing",
-	pages   = "1212--1222",
-	volume  =  10,
-	number  =   8,
-	year    = 2001,
-	}
-	
-	@Misc{latexdocweb,
-	author  = "",
-	title   = "{\LaTeX} --- online manuál",
-	note    = "\verb|http://www.cstug.cz/latex/lm/frames.html|",
-	year    = "",
-	}
-	...
-	\end{verbatim}
-	
-	%11.12.2008, 3.5.2009
-	\textbf{Pozor:} Sazba názvů odkazů je dána Bib\TeX{} stylem\\ (\verb|\bibliographystyle{abbrv}|). 
-	%Budete-li používat české prostředí (\verb|\usepackage[czech]{babel}|), 
-	Bib\TeX{} tedy obvykle vysází velké pouze počáteční písmeno z názvu zdroje, 
-	ostatní písmena zůstanou malá bez ohledu na to, jak je napíšete. 
-	Přesněji řečeno, styl může zvolit pro každý typ publikace jiné konverze. 
-	Pro časopisecké články třeba výše uvedené, jiné pro monografie (u nich často bývá 
-	naopak velikost písmen zachována).
-	
-	Pokud chcete Bib\TeX u napovědět, která písmena nechat bez konverzí 
-	(viz \texttt{title = "\{$\backslash$LaTeX\} -{}-{}- online manuál"} 
-	v~předchozím příkladu), je nutné příslušné písmeno (zde celé makro) uzavřít 
-	do složených závorek. Pro přehlednost je proto vhodné celé parametry 
-	uzavírat do uvozovek (\texttt{author = "\dots"}), nikoliv do složených závorek.
-	
-	Odkazy na literaturu ve zdrojovém textu se pak zapisují:
-	\begin{verbatim}
-	Podívejte se na \cite{Chen01}, 
-	další detaily najdete na \cite{latexdocweb}
-	\end{verbatim}
-	
-	Vazbu mezi soubory \verb|*.tex| a \verb|*.bib| zajistíte příkazem 
-	\verb|\bibliography{}| v souboru \verb|*.tex|.  V našem případě tedy zdrojový 
-	dokument \verb|thesis.tex| obsahuje příkaz\\
-	\verb|\bibliography{reference}|.
-	
-	Zpracování zdrojového textu s odkazy se provede postupným voláním programů\\
-	\verb|pdflatex <soubor>| (případně \verb|latex <soubor>|), \verb|bibtex <soubor>| 
-	a opět\\ \verb|pdflatex <soubor>|.\footnote{První volání \texttt{pdflatex} 
-		vytvoří soubor s~koncovkou \texttt{*.aux}, který je vstupem pro program 
-		\texttt{bibtex}, pak je potřeba znovu zavolat program \texttt{pdflatex} 
-		(\texttt{latex}), který tentokrát zpracuje soubory s příponami \texttt{.aux} a 
-		\texttt{.tex}. 
-		Informaci o případných nevyřešených odkazech (cross-reference) vidíte přímo při 
-		zpracovávání zdrojového souboru příkazem \texttt{pdflatex}. Program \texttt{pdflatex} 
-		(\texttt{latex}) lze volat vícekrát, pokud stále vidíte nevyřešené závislosti.}
-	
-	
-	Níže uvedený příklad je převzat z dříve existujících pokynů studentům, kteří 
-	dělají svou diplomovou nebo bakalářskou práci v~Grafické skupině.\footnote{Několikrát 
-		jsem byl upozorněn, že web s těmito pokyny byl zrušen, proto jej zde přímo necituji. 
-		Nicméně příklad sám o sobě dokumentuje obecně přijímaný konsensus ohledně citací 
-		v~bakalářských a diplomových pracích na KP.} Zde se praví:
-	\begin{small}
-		\begin{verbatim}
-		...
-		j) Seznam literatury a dalších použitých pramenů, odkazy na WWW stránky, ...
-		Pozor na to, že na veškeré uvedené prameny se musíte v textu práce 
-		odkazovat -- [1]. 
-		Pramen, na který neodkazujete, vypadá, že jste ho vlastně nepotřebovali 
-		a je uveden jen do počtu. Příklad citace knihy [1], článku v časopise [2], 
-		stati ve sborníku [3] a html odkazu [4]: 
-		[1] J. Žára, B. Beneš;, and P. Felkel. 
-		Moderní počítačová grafika. Computer Press s.r.o, Brno, 1 edition, 1998. 
-		(in Czech). 
-		[2] P. Slavík. Grammars and Rewriting Systems as Models for Graphical User 
-		Interfaces. Cognitive Systems, 4(4--3):381--399, 1997. 
-		[3] M. Haindl, Š. Kment, and P. Slavík. Virtual Information Systems. 
-		In WSCG'2000 -- Short communication papers, pages 22--27, Pilsen, 2000. 
-		University of West Bohemia. 
-		[4] Knihovna grafické skupiny katedry počítačů: 
-		http://www.cgg.cvut.cz/Bib/library/ 
-		\end{verbatim}
-	\end{small}
-	\ldots{} abychom výše citované odkazy skutečně našli v (automaticky generovaném) seznamu literatury tohoto textu, musíme je nyní alespoň jednou citovat: Kniha \cite{kniha}, článek v~časopisu \cite{clanek}, příspěvek na konferenci \cite{sbornik}, www odkaz \cite{www}.
-	
-	\subsection{Odkazy na obrázky, tabulky a kapitoly}
-	\begin{itemize}
-		\item Označení místa v textu, na které chcete později čtenáře práce odkázat, se provede příkazem \verb|\label{navesti}|. Lze použít v prostředích \verb|figure| a  \verb|table|, ale též za názvem kapitoly nebo podkapitoly.
-		\item Na návěští se odkážeme příkazem \verb|\ref{navesti}| nebo \verb|\pageref{navesti}|.
-	\end{itemize}
-	
-	\section{Rovnice, centrovaná, číslovaná matematika}
-	Jednoduchý matematický výraz zapsaný přímo do textu se vysází pomocí prostředí \verb|math|, resp. zkrácený zápis pomocí uzavření textu rovnice mezi znaky \verb|$|.
-	
-	Kód \verb|$ S = \pi * r^2 $| bude vysázen takto: $ S = \pi * r^2 $.
-	
-	Pokud chcete nečíslované rovnice, ale umístěné centrovaně na samostatné řádky, pak lze použít prostředí \verb|displaymath|, resp. zkrácený zápis pomocí uzavření textu rovnice mezi znaky \verb|$$|. Zdrojový kód: 
-	\begin{verb}
-		|$$ S = \pi * r^2 $$|
-	\end{verb}
-	bude pak vysázen takto:
-	$$ S = \pi * r^2 $$
-	
-	Chcete-li mít rovnice číslované, je třeba použít prostředí \verb|eqation|. Kód:
-	\begin{verbatim}
-	\begin{equation}
-	S = \pi * r^2
-	\end{equation}
-	
-	\begin{equation}
-	V = \pi * r^3
-	\end{equation}
-	\end{verbatim}
-	je potom vysázen takto:
-	\begin{equation}
-	S = \pi * r^2
-	\end{equation}
-	
-	\begin{equation}
-	V = \pi * r^3
-	\end{equation}
-	
-	\section{Kódy programu}
-	Chceme-li vysázet například část zdrojového kódu programu (bez formátování), hodí se prostředí \verb|verbatim|: 
-	\begin{verbatim}
-	(* nickname2 *)
-	Lego> Refine in1
-	(do_reg (nickname1 h));
-	Refine by  in1 (do_reg (nickname1 h))
-	?4 : pcdata
-	?5 : pcdata
-	(* surname2 *)
-	Lego> Refine surname1 h;
-	Refine by  surname1 h
-	?5 : pcdata
-	(* email2 *)
-	Lego> Refine undo_reg (email1 h);
-	Refine by  undo_reg (email1 h)
-	*** QED ***
-	\end{verbatim}
-	
-	\section{Další poznámky}
-	\subsection{České uvozovky}
-	V souboru \verb|k336_thesis_macros.tex| je příkaz \verb|\uv{}| pro sázení českých uvozovek. \uv{Text uzavřený do českých uvozovek.}
-	
-	% JZ: 3.5.2009 \chapter z book zajistí automaticky
-	%\subsection{Začátky kapitol na liché stránky}
-	%Ve výsledném textu je dobré, když každá kapitola začíná na liché stránce. Tedy použijte:
-	%\begin{verbatim}
-	%  \cleardoublepage\include{1_uvod}
-	%  \cleardoublepage\include{2_teorie}
-	%   atd.\ldots{}
-	%\end{verbatim}
-	
-	%*****************************************************************************
-	\chapter{Seznam použitých zkratek}
-	
-	\begin{description}
-		\item[2D] Two-Dimensional
-		\item[ABN] Abstract Boolean Networks
-		\item[ASIC] Application-Specific Integrated Circuit
-	\end{description}
-	\vdots
-	
-	%*****************************************************************************
-	\chapter{UML diagramy}
-	\textbf{\large Tato příloha není povinná a zřejmě se neobjeví v každé práci. Máte-li ale větší množství podobných diagramů popisujících systém, není nutné všechny umísťovat do hlavního textu, zvláště pokud by to snižovalo jeho čitelnost.}
-	
-	%*****************************************************************************
-	\chapter{Instalační a uživatelská příručka}
-	\textbf{\large Tato příloha velmi žádoucí zejména u softwarových implementačních prací.}
-	
-	%*****************************************************************************
-	\chapter{Obsah přiloženého CD}
-	\textbf{\large Tato příloha je povinná pro každou práci. Každá práce musí totiž obsahovat přiložené CD. Viz dále.}
-	
-	Může vypadat například takto. Váš seznam samozřejmě bude odpovídat typu vaší práce. (viz \cite{infodp}):
-	
-	\begin{figure}[h]
-		\begin{center}
-			\includegraphics[width=14cm]{figures/seznamcd}
-			\caption{Seznam přiloženého CD --- příklad}
-			\label{fig:seznamcd}
-		\end{center}
-	\end{figure}
-	
-	Na GNU/Linuxu si strukturu přiloženého CD můžete snadno vyrobit příkazem:\\ 
-	\verb|$ tree . >tree.txt|\\
-	Ve vzniklém souboru pak stačí pouze doplnit komentáře.
-	
-	Z \textbf{README.TXT} (případne index.html apod.)  musí být rovněž zřejmé, jak programy instalovat, spouštět a jaké požadavky mají tyto programy na hardware.
-	
-	Adresář \textbf{text}  musí obsahovat soubor s vlastním textem práce v PDF nebo PS formátu, který bude později použit pro prezentaci diplomové práce na WWW.
+%\include{appendix}
 	
 \end{document}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

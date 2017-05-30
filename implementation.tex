@@ -1,0 +1,61 @@
+
+	%*****************************************************************************
+	\chapter{Implementation}
+	\section{Prototypes}
+	\subsection{\reversegeo}
+	\subsection{\gps}
+	\subsection{\poi}
+	\section{Architecture}
+	\subsection{Language \& Frameworks}
+	\section{Technical Details}
+	\subsection{APIs}
+	%kdo
+	%co
+	%kolik
+	%kdy
+	%kde
+	%jak
+	%proč
+	\subsubsection{My APIs}
+	\subsubsection{Naviterier APIs}
+	\subsubsection{Other APIs}
+	\subsection{Databases}
+	\subsubsection{Addresses Database}
+	%kdo/co
+	The addresses database contains a list of all addresses. The address consist of street name and house number, street name nad landregistry number or street name house number / landregistry number. I.e. \uv{Karlovo náměstí 13}, \uv{Karlovo náměstí 296} or \uv{Karlovo náměstí 296/13}.
+	%kolik
+	The data are one time collected from the Naviterier \uv{GetAddresses API} \cite{naviterier-addresses}.
+	%kdy
+	%kde
+	
+	%proč
+	The data are used to validate the address writen by user to the input really exists, or to validate if the address returned by the Reverse geocoding API is in the area covered by Naviterier.
+	
+	%jak
+	The database was enritched by a field \uv{street\_noaccents}. In this field is the street name striped of diacritics, spaces and special characters. I.e. \uv{náměstí I. P. Pavlova} is stored as \uv{namestiippavlova}. This allows the user to write without diacritics and not wory about the correct spacing.
+	
+	\subsubsection{DPP Database}
+	% kdo/co
+	The DPP database contains data about public transport in Prague (metro, trams, buses, chairlift and ferrys). 
+	There is a list of all stops with their GPS coordinates, all journeys of all lines in Prague and most important, the sequence of all stops on a journey of a line.
+	
+	% jak
+	The data was downloaded from the Prague's Open Data Portal \cite{dpp-data} and uploaded to the database. The data are valid for 7 days.
+	% kolik
+	The data are quite big, largest table arround 1.7 milions of entries. Therefore the data was imported one time only and not a regular basis.
+	% kdy 
+	% kde
+	
+	% proč
+	I am using this data to obtain a specific tramstop. The user inputs the stop he is currently standing on, the tram line and one of next stops. The system checks in which direction the line is heading and based on the direction determines the exact stop and its GPS position. The GPS position is then used to start the navigation.
+	
+	The DPP Database contains data
+	Aktuální jízdní řády sítě linek PID mimo vlaků (metro, tramvaje, autobusy, lanovka, přívozy) ve formátu GTFS. Data jsou pro období 7 dní dopředu.
+	
+
+	
+	\section{Prototypes} \label{sec:prototypes}
+	
+
+	
+	
