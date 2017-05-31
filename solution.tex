@@ -113,7 +113,7 @@ Another set of 5 friends of mine participated. Their age ranged from ? to ?. ? m
 	\paragraph{POI}
 	\paragraph{POI - with GPS}
 	\paragraph{Crossing of two streets}
-	\paragraph{GPS & compass}
+	\paragraph{GPS \& compass}
 	\paragraph{GPS wo compass}
 	
 	
@@ -189,6 +189,28 @@ Another set of 5 friends of mine participated. Their age ranged from ? to ?. ? m
 		
 	
 	\paragraph{\gps}
+	The \gps sends the user in correct direction, collects his coordintates on the way and then tries to estimate the best position on the sidewalk.
+	
+	\gps asks for the address of the target. Then users stands with his backs to the wall. The compass built in the phone tells which direction is the shortest air-path to the target. if it is in interval <90\degree, -90\degree> it sends him right in (90\degree, 270\degree) sends him left
+	
+	%img where send left when right
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/5thExp-blind2phoneInCity/gps-gorightorgoleft}
+		\caption{}
+		\label{fig:gps-gorightorgoleft}
+	\end{figure}
+	
+	
+	Then it starts coolecting coordinates. The user goes to the side (in this example right) and goes to the corner of the building. He mark down to the app he is on the corner. And walks another cca 30 meters. Then he hits estimate my position. His logged coordinates are matched to the map of sidewalks in Naviterier maps \cite{naviterier-maps}. Then the app knows which sidewalk he is standig on. Next the app projects his current gps coordinates to the nearest position on sidewalk.
+	
+	From this sidewalk the app just finds the nearest address on this given sidewalk and starts a navigation from this point.
+	
+	%img process of walking, matching, estimate sidewalk, estimate projection, estimate address
+	
+	%img screens
+	
+	Coordinates on sidewalk to address: GPS address api (described in \ref{gps-address-api})
 	
 	
 	\paragraph{restrictions}
