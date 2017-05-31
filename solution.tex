@@ -117,13 +117,85 @@ Another set of 5 friends of mine participated. Their age ranged from ? to ?. ? m
 	\paragraph{GPS wo compass}
 	
 	
-	This time the Wizzard of Oz simulation went even further. The user was given a phone. And instructed, when he taps the upper part of the screen it means button one, lower part means button two. In fact the phone was turned off. The researcher was standing nearby and deterining the dialog again by clicking and leting the computer read aloud the TTS texts.
+	This time the Wizzard of Oz simulation went even further. The user was given a phone. And instructed, when he taps the upper part of the screen it means button one, lower part means button two. In fact the phone was turned off. The researcher was standing nearby and determining the dialog again by clicking and letting the computer read aloud the TTS texts.
 	
 	\paragraph{outputs}
 	
-	https://docs.google.com/document/d/1xfWjAOKCVGUYHrUM910tLNwEvJqrzqakL6JYwVVPzdc/edit
+	%todo see https://docs.google.com/document/d/1xfWjAOKCVGUYHrUM910tLNwEvJqrzqakL6JYwVVPzdc/edit
 	
 	
 	 
 	\section{Hifi system blind-2-cell phone in the city}
-	The last iteration brought three prototypes: \reversegeo, \gps and \poi. All three of them are fully working. The users can interact with them in the browser
+	The last iteration brought three prototypes: \reversegeo, \gps and \poi. All three of them are fully working. The users can interact with them in the browser.
+		
+	
+	\paragraph{\reversegeo}
+	\reversegeo prototype uses user's current position. The GPS senstor in the phone tells the user's coordinates: latitude and longitude. The HERE API \cite{here-api} estimates what is the nearest address for user's coordinates. Parallel to that the prototype asks user for the address he want's to go. And then finaly the navigation is started between the estimated address and the address user wants to go.
+	
+	%todo screens
+	
+	I expected the \reversegeo would fail in case the nearest address would be on the opposite sidewalk accross the street. But it should demonstrate the state-of-the-art solution. Since it uses only currently used technologies. 
+	
+	
+	\paragraph{\poi}
+	\poi prototype simulates a dialogue. The system asks question and the user can respond as he will. The answer is sent to Conversational API\cite{conversational-api} from IBM. Which can uderstand the context and infromation the user said.
+	
+	The \poi asks for address user want to go and then ask user for current position, where he stands. The current positioncan be the address or the name of the tramstop. When some information is not complete, the system asks the follow up questions.
+	
+	Let's say the user wants to go to Myslíkova 22, and arrived by the tram 9 to Národní třída. The tram disapeared in the direction Národní Divadlo. And the user is on the stop platform. The dialogue then can look like:
+	
+	Wellcome my friend, where are you going? 
+	Myslíkova 22
+	You are going to Myslíkova 22. What is your current address, or what is your public transport stop?
+	Tram Narodní Třída.
+	You are on stop Národní třída. Let's determine exact platform. What line and in which direction? (next stop is sufficent info)
+	9 Národní divadlo
+	So you are now leaving from stop Národní třída, line 9 in direction Národní divadlo.
+	
+	Or
+	
+	
+	Wellcome my friend, where are you going? 
+	Myslíkova
+	You are going to Myslíkova, What is the house number?
+	22
+	You are going to Myslíkova 22. What is your current address, or what is your public transport stop?
+	Národní Třída.
+	Not sure, Did you meant street Národní or stop Národní třída?
+	Stop
+	You are on stop Národní třída. Let's determine exact platform. What line and in which direction? (next stop is sufficent info)
+	9
+	Line 9. In which direction? (next stop is sufficient info)
+	... and so on
+	
+	
+	
+	In both cases it will extract the parameters
+	\begin{itemize}
+		\item target street: Myslíkova
+		\item target house number: 22
+		\item source line: 9
+		\item source stop name: Národní třída
+		\item source next stop: Národní divadlo
+	\end{itemize}
+
+	The triplet (line, stop name, next stop) is converted to GPS coordinates and these GPS coordinates to an address. This address is then used as source address to launch navigation from target address to this source address.
+	
+	Triplet to GPS coords: DPP API (described in section \ref{triplet-api})
+	GPS coords to address: HERE API \cite{here-api}
+	User input to meaning: Conversational API from IBM \cite{conversational-api}
+	
+	%img of prototype
+		
+	
+	\paragraph{\gps}
+	
+	
+	\paragraph{restrictions}
+	I needed to keep the complexity reduced for the prototyping. The goal of these prototypes was to validate the idea works. I was not interested in covering the whole problem of point to point navigation.
+	The further systems could accept as well points of interest ie "pizza restaurant in Lazarská" and stops of all means of public transport (buses, metro, trains).
+	Since the point of the interests can be decoded to GPS coordinates using i.e. Google API \cite{google-api}. And the data about other means of public transport are covered in the open DPP data \cite{dpp-data} and I could use the same algorithm as for trams.
+	
+	In the \gps prototype to speed up the protyping cyclus I didn't make the algorithm perfect. As well I didn't validate if there is the map data for given area. The testing will be done in area, which is covered and again I am going to validate the idea is working, not to deliver full experience.
+	
+	
