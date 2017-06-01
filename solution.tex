@@ -1,9 +1,31 @@
 %*****************************************************************************
 	\chapter{Analysis and design of the solution}
-	Based on the assignment I hit into a question \emph{How should the dialogue with a blind pedestrian look like?} After hours spent thinking about how to do it. I was advised from my supervisor just to observe. So I did. I used an iterative technique, where I started analysing dialogue of two people and ended up with a fully standalone web app.
-	\section{Natural dialog human-2-human over a map}
+	Based on the assignment I was asking a question \emph{How should the dialogue with a blind pedestrian look like?} After hours spent thinking about how to do it. I was advised from my supervisor just to observe. So I did. I used an iterative technique, where I started analysing dialogue of two people and ended up with a fully standalone web app.
+	
+	I did five iterations, tested them and implemented the outputs of one iteration to a next iteration.
+	
+	In the first iteration was just talking with users and try to localize them on a map.
+	
+	In the second iteration a I was controlling a computer which talked to the users in a machine voice and the people talked back to me.
+	
+	In the third iteration I improved the previous prototype and tested it in the city.
+	
+	In the fourth iteration branched for two directions. First direction asking user about the address, street and or public transport stops. Second direction using heavily GPS, guiding user around a corner of a street and matching his path to map data.
+	
+	In the fifth iteration I put the most promising methods of the fourth iteration to a code and validated how they succeedd while using by real users (blinds) in real environment (city).
+	
+	The whole developement focused on usage in the center of Prague.
+	\section{Iteration 1 - talking}
 	\label{sec:FirstExperiment}
-	I started with a game. It was a two player game. One player was simulating a \emph{\uv{blind} user} walking in a city the second player was seeker. I was playing the \emph{seeker}, asking the user questions and trying to localize him.
+	
+	\begin{labeling}{number of prototypes}
+		\item [people] sighted
+		\item [environment] map
+		\item [number of prototypes] 1
+		\item [implementation] none
+	\end{labeling}
+	
+	I started with a game. Two player game, one player was simulating a \emph{\uv{blind} user} walking in a city the second player was seeker. I was playing the \emph{seeker}, asking the user questions and trying to localize him.
 	
 	%todo image
 	\begin{figure}[h]
@@ -66,7 +88,13 @@
 	\end{itemize}
 	
 		
-	\section{Fixed questions human-2-WizzardOfOzz over a map}
+	\section{Iteration 2 - dialogue system}
+	\begin{labeling}{number of prototypes}
+		\item [people] sighted
+		\item [environment] map
+		\item [number of prototypes] 1
+		\item [implementation] Wizard of Oz
+	\end{labeling}
 	As a second step I built a low fidelity prototype of dialogue system. I wanted to verify the questions from the first experiment would work even when read aloud by a computer system and to see how the interaction would change.
 	
 	 I used Axure\cite{axure} to create a diagram and craft the logic of this system. And I used the Accapela text to speech (TTS) service\cite{accapela} to prerecord all seeker's questions and possible answers. So whenever I clicked on a field in the diagram, the computer read it alloud.
@@ -100,8 +128,20 @@ Another set of 5 friends of mine participated. Their age ranged from ? to ?. ? m
 
 	
 	 I 
-	\section{Fixed question human-2-WizzardOfOzz in the city}
-	\section{Dialog system blind-2-WizzardOfOzz in the city}
+	\section{Iteration 3 - fixed dialogue system}
+	\begin{labeling}{number of prototypes}
+		\item [people] sighted
+		\item [environment] city
+		\item [number of prototypes] 1
+		\item [implementation] Wizard of Oz
+	\end{labeling}
+	\section{Iteration 4 - new variants}
+	\begin{labeling}{number of prototypes}
+		\item [people] blind
+		\item [environment] city
+		\item [number of prototypes] 5
+		\item [implementation] Wizard of Oz
+	\end{labeling}
 	From the second and thir experiment I learned that it's sometimes impossible to decide the possition of person, it takes long and is error prone. And as well I compared it with the Naviterier data structure \cite{naviterier-data}. 
 	%todo how it was exactly, what do i need
 	I realised that most of the needed infos like trams, type of corners, altitude are not present in the API, thus not able to be used in a standallone application.
@@ -125,7 +165,14 @@ Another set of 5 friends of mine participated. Their age ranged from ? to ?. ? m
 	
 	
 	 
-	\section{Hifi system blind-2-cell phone in the city}
+	\section{Iteration 5 - fixed variants}
+	\begin{labeling}{number of prototypes}
+		\item [people] blind
+		\item [environment] city
+		\item [number of prototypes] 3
+		\item [implementation] Website + backend
+	\end{labeling}
+
 	The last iteration brought three prototypes: \reversegeo, \gps and \poi. All three of them are fully working. The users can interact with them in the browser.
 		
 	
